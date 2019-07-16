@@ -1,0 +1,18 @@
+<div class="card animated fadeIn fast">
+  <img [src]="'assets/img/'+hero.type+'.png'" class="card-img-top" [alt]="hero.name">
+  <div class="card-body">
+    <h5 class="card-title">{{hero.name}}</h5>
+    <div class="col-md-12">
+      <div class="form-group">
+          <p class="card-text"><strong>Skill: </strong>{{hero.skill}}</p>
+          <p class="card-text"><strong>level: </strong>{{hero.level}}</p>
+      </div>
+    </div>
+  </div>
+  <button (click)="attack(hero.Id)" *ngIf="!hero.itsMine" class="btn btn-outline-danger btn-block">
+    Attack ...
+  </button>
+  <button (click)="select(hero.Id)" *ngIf="hero.itsMine" class="btn btn-outline-success btn-block">
+    Select ...
+  </button>
+</div>

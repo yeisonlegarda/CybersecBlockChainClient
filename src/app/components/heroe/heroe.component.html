@@ -1,0 +1,62 @@
+<div class="text-left">
+  <button (click)="withDraw()" class="btn btn-outline-danger">Withdraw founds... </button>
+</div>
+  <div class="container">
+    <br>
+    <div class="row" *ngIf="mySelectedHero.name != undefined">
+      <div class="col-lg-12 col-md-12">
+        <section class="jumbotron text-center">
+          <div class="container">
+            <h1 class="animated fadeIn">Selected Hero </h1>
+              <hr>
+                <div class="row animated fadeIn fast">
+                  <div class="col-md-4">
+                    <img [src]="'assets/img/'+mySelectedHero.type+'.png'" class="img-fluid" [alt]="mySelectedHero.name">
+                    <br><br>
+                    <a [routerLink]="['/editHero',mySelectedHero.Id]" class="btn btn-outline-primary btn-block">Edit </a>
+                  </div>
+                  <div class="col-md-8">
+                    <h3>{{mySelectedHero.name}}</h3>
+                    <hr>
+                    <div class="text-left">
+                      <p>
+                        <span><strong>Skill:</strong></span> {{mySelectedHero.skill}}
+                      </p>
+                      <p>
+                        <span><strong>Level:</strong></span> {{mySelectedHero.level}}
+                      </p>
+                      <p>
+                        <span><strong>Win Count:</strong></span> {{mySelectedHero.winCount}}
+                      </p>
+                      <p>
+                        <span><strong>Loss Count:</strong></span> {{mySelectedHero.lossCount}}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <br>
+    <nav class="navbar navbar-dark bg-dark" (click)="showHeros=!showHeros">
+        <span class="navbar-text">
+            My Heros
+          </span>
+    </nav>
+    <br>
+    <div class="card-columns" *ngIf="!showHeros">
+        <app-hero-card (selectedHero)="select($event)" [hero]="hero" [index]="0" *ngFor="let hero of myHerosUI"></app-hero-card>
+    </div>
+    <br>
+    <nav class="navbar navbar-dark bg-dark" (click)="showHeros=!showOponents">
+        <span class="navbar-text">
+            Oponents
+          </span>
+    </nav>
+    <br>
+    <div class="card-columns" *ngIf="!showOponents">
+        <app-hero-card (attackedHero)="Attack($event)" [hero]="hero" [index]="0" *ngFor="let hero of herosUI"></app-hero-card>
+    </div>
+  </div>

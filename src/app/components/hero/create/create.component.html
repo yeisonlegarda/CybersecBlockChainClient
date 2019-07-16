@@ -1,0 +1,47 @@
+<h3>New Hero</h3>
+<hr>
+<div class="row animated fadeIn fast">
+  <div class="col-md-4" *ngIf="hero.type">
+    <img [src]="'assets/img/'+hero.type+'.png'" class="img-fluid">
+  </div>
+
+  <div class="col-md-8">
+    <form (ngSubmit)="save()" #form="ngForm">
+      <div class="form-group">
+        <label>Name</label>
+        <input
+              [(ngModel)]="hero.name"
+              type="text"
+              name="name"
+              value=""
+              class="form-control"
+              placeholder="Hero Name"
+              required>
+      </div>
+      <div class="form-group">
+        <label>Tipo</label>
+        <select [(ngModel)]="hero.type"
+                class="form-control"
+                name="casa"
+                required>
+          <option value="1">Hulk</option>
+          <option value="2">Wolverine</option>
+          <option value="3">Spiderman</option>
+          <option value="4">Aquaman</option>
+          <option value="5">Green Lantern</option>
+          <option value="6">DareDevil</option>
+          <option value="7">Batman</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <button [disabled]="!form.valid"
+                type="submit"
+                class="btn btn-outline-primary">
+          Save ...
+        </button>
+      </div>
+    </form>
+  </div>
+
+</div>

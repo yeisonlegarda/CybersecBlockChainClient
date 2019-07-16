@@ -1,0 +1,32 @@
+<div class="container">
+  <h1 class="animated fadeIn">Selected Hero </h1>
+    <hr>
+      <div class="row animated fadeIn fast">
+        <div class="col-md-4">
+          <img [src]="'assets/img/'+mySelectedHero.type+'.png'" class="img-fluid" [alt]="mySelectedHero.name">
+          <br><br>
+          <button (click)="levelUp()" class="btn btn-outline-primary btn-block">Level Up... </button>
+        </div>
+        <div class="col-md-8">
+          <h3>{{mySelectedHero.name}}</h3>
+          <hr>
+          <div class="text-left">
+            <p>
+              <span><strong>Skill:</strong></span> {{mySelectedHero.skill}}
+            </p>
+          </div>
+          <form class="form-inline centered-form">
+            <div class="form-group mx-sm-3 mb-2" >
+              <label class="sr-only" for="inlineFormInputName2">Name</label>
+              <input type="text" [(ngModel)]="heroNewName" name="heroNewName" class="form-control mb-2 mr-sm-2" id="newName" placeholder="New Name">
+              <button class="btn btn-outline-success mb-2" (click)="changeName(heroNewName)">Ok</button>
+            </div>
+            <div class="form-group mx-sm-3 mb-2" >
+              <label class="sr-only" for="inlineFormInputName2">Skill</label>
+              <input type="text" [(ngModel)]="newSkill" name="newSkill" class="form-control mb-2 mr-sm-2" id="newSkill" placeholder="New Skill">
+              <button (click)="changeSkill(newSkill)" class="btn btn-outline-success mb-2">Ok</button>
+            </div>
+          </form>
+        </div>
+      </div>
+</div>
