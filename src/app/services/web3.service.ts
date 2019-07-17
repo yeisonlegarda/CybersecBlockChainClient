@@ -5,7 +5,7 @@ declare let window:any;
 declare let require:any;
 
 const contractAbi = require('./contract.abi.json');
-const contractAddress = '0x6e781ecd6504726ab3fc2e3c4bf1e84d85de0e66';
+const contractAddress = '0x4a53043487d885bf9dfcfc7820371ca2703b7a51';
 
 
 @Injectable({

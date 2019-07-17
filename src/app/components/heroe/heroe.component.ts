@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Web3Service } from '../../services/web3.service';
+import { faSync} from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -9,12 +10,13 @@ import { Web3Service } from '../../services/web3.service';
   styleUrls: ['./heroe.component.css']
 })
 export class HeroeComponent implements OnInit {
-
+  faSpinner = faSync;
 
   public allHeros:any[]=[];
-  public herosUI:any[]=[];
-  public myHerosUI:any[]=[]
-  public mySelectedHero:any={};
+  public herosUI:any[];
+  public myHerosUI:any[];
+  public mySelectedHero:any;
+  loading:boolean;
 
 
   constructor(private heroesService:Web3Service) {
@@ -35,7 +37,17 @@ export class HeroeComponent implements OnInit {
   })
   }
 
+  public reloadHeros(){
+    this.loading = true;
+    this.getHeros();
+    this.loading = false;
+  }
+
   public getHeros(){
+
+    this.herosUI=[];
+    this.myHerosUI=[];
+    this.mySelectedHero={};
 
       this.heroesService.getHerosOwner().then(resultIdOwner=>{
           let idxmyHeros:number[]=[];

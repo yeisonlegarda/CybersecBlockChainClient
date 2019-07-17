@@ -10,6 +10,7 @@ import { Web3Service } from './services/web3.service';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { CreateComponent } from './components/hero/create/create.component';
 import { EditComponent } from './components/hero/edit/edit.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { EditComponent } from './components/hero/edit/edit.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [
     Web3Service

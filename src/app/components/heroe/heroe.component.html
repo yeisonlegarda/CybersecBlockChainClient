@@ -1,6 +1,15 @@
 <div class="text-left">
   <button (click)="withDraw()" class="btn btn-outline-danger">Withdraw founds... </button>
 </div>
+<br>
+<button (click) = "reloadHeros()" class="btn btn-outline-secondary">
+  <span>
+    <fa-icon [icon]="faSpinner" [spin]="true" size="lg" *ngIf="loading"></fa-icon>
+    <fa-icon [icon]="faSpinner" size="lg"  *ngIf="!loading"></fa-icon>
+  </span>
+</button>
+
+
   <div class="container">
     <br>
     <div class="row" *ngIf="mySelectedHero.name != undefined">
@@ -30,6 +39,9 @@
                       </p>
                       <p>
                         <span><strong>Loss Count:</strong></span> {{mySelectedHero.lossCount}}
+                      </p>
+                      <p>
+                        <span><strong>Ready time:</strong></span> {{mySelectedHero.readyTimer*1000 | date: 'yyyy/MM/dd h:mm:ss a'}}
                       </p>
                     </div>
                   </div>
